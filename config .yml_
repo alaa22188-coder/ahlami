@@ -2,8 +2,3 @@ title: موقع احلامي
 description: موقع أحلامي يقدم لك تفسير الأحلام والرؤى بدقة وسرعة.
 url: "https://alaa22188-coder.github.io"
 baseurl: "/ahlami"
-
-theme: minima
-
-plugins:
-  - jekyll-feed

@@ -1,5 +1,9 @@
 title: موقع احلامي
-description: موقع أحلامي يقدم لك تفسير الأحلام والرؤى بدقة وسرعة. تصفح قاموس الأحلام أو اطلب تفسير حلمك الآن من خُبراء ومفسرين معتمدين.
+description: موقع أحلامي يقدم لك تفسير الأحلام والرؤى بدقة وسرعة.
 url: "https://alaa22188-coder.github.io"
 baseurl: "/ahlami"
-future: true
+
+theme: minima
+
+plugins:
+  - jekyll-feed

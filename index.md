@@ -3,16 +3,14 @@ layout: default
 title: الرئيسية
 ---
 
-# أهلاً بك في موقعي الجديد!
+# أهلاً بك في موقع أحلامي!
 
-هنا سأقوم بنشر المقالات والألعاب الستاتيك الخاصة بي.
-
-## أحدث الإضافات والمقالات:
+## أحدث تفسيرات الأحلام:
 
 <ul>
-  {% for post in site.posts %}
+  {% for post in site.posts limit:5 %}
     <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a> — {{ post.date | date_to_string }}
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a> — {{ post.date | date: "%Y/%m/%d" }}
     </li>
   {% endfor %}
 </ul>

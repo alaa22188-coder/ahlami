@@ -3,9 +3,3 @@ description: موقع أحلامي يقدم لك تفسير الأحلام وا�
 url: "https://alaa22188-coder.github.io"
 baseurl: "/ahlami"
 future: true
-
-# قاموس ترجمة التصنيفات للسيو
-categories_labels:
-  games: "ألعاب واختبارات"
-  news: "أخبار ومستجدات"
-  tech: "تقنيات وتطوير"

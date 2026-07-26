@@ -8,7 +8,7 @@ title: الرئيسية
 ## أحدث تفسيرات الأحلام:
 
 <ul>
-  {% for post in site.posts limit:5 %}
+  {% for post in site.posts limit:30 %}
     <li>
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a> — {{ post.date | date: "%Y/%m/%d" }}
     </li>

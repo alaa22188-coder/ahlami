@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- العناوين والوصف الافتراضي والديناميكي للسيو -->
-    <title>{% if page.title %}{{ page.title }} | موقع ألعابي ومقالاتي{% else %}موقع ألعابي ومقالاتي{% endif %}</title>
+    <title>{% if page.title %}{{ page.title }} | موقع احلامي{% else %}موقع احلامي{% endif %}</title>
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     
     <!-- رابط الكانونيكال التلقائي المستند إلى الرابط الفعلي -->
@@ -40,16 +40,16 @@
     <header>
         <!-- فحص ذكي: إذا كنا في الرئيسية نظهر H1، في المقالات يظهر تصميم عادي لترك الـ H1 لعنوان المقال -->
         {% if page.url == "/" or page.url == "/index.html" %}
-            <h1>موقع ألعابي ومقالاتي</h1>
+            <h1>موقع احلامي</h1>
         {% else %}
-            <div style="font-size: 2em; font-weight: bold; margin-block-start: 0.67em; margin-block-end: 0.67em;">موقع ألعابي ومقالاتي</div>
+            <div style="font-size: 2em; font-weight: bold; margin-block-start: 0.67em; margin-block-end: 0.67em;">موقع احلامي</div>
         {% endif %}
         <p>{{ site.description }}</p>
     </header>
 
     <nav>
         <a href="{{ site.baseurl }}/">الرئيسية</a>
-        <a href="{{ site.baseurl }}/games/">قسم الألعاب والاختبارات</a>
+ 
     </nav>
 
     <main>

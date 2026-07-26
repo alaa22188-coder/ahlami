@@ -1,0 +1,11 @@
+title: موقع ألعابي ومقالاتي
+description: موقع ترفيهي يقدم ألعاب ستاتيك خفيفة واختبارات تفاعلية ممتعة ومقالات منوعة.
+url: "https://alaa22188-coder.github.io"
+baseurl: "/quizly"
+future: true
+
+# قاموس ترجمة التصنيفات للسيو
+categories_labels:
+  games: "ألعاب واختبارات"
+  news: "أخبار ومستجدات"
+  tech: "تقنيات وتطوير"

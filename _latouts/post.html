@@ -1,0 +1,61 @@
+---
+layout: default
+---
+<!-- استخراج الاسم العربي للتصنيف من القاموس -->
+{% assign category_slug = page.category %}
+{% assign category_name = site.categories_labels[category_slug] | default: category_slug %}
+
+<!-- شريط التنقل Breadcrumb المطور -->
+<div class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <a href="{{ site.baseurl }}/" itemprop="item"><span itemprop="name">الرئيسية</span></a>
+    <meta itemprop="position" content="1" />
+  </span>
+  <span>&rsaquo;</span>
+  
+  {% if page.category %}
+  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <!-- الرابط سيتولد بالإنجليزية /games/ والاسم سيظهر بالعربية -->
+    <a href="{{ site.baseurl }}/{{ category_slug }}/" itemprop="item"><span itemprop="name">{{ category_name }}</span></a>
+    <meta itemprop="position" content="2" />
+  </span>
+  <span>&rsaquo;</span>
+  {% endif %}
+  
+  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <strong itemprop="name">{{ page.title }}</strong>
+    <meta itemprop="position" content="{% if page.category %}3{% else %}2{% endif %}" />
+  </span>
+</div>
+
+<!-- تم تغيير العنوان من H2 إلى H1 لدعم السيو الاحترافي -->
+<h1 style="font-size: 28px; color: #333; margin-top: 10px; margin-bottom: 5px;">{{ page.title }}</h1>
+<small>التصنيف: {{ category_name }} | تم النشر في: {{ page.date | date: "%Y-%m-%d" }}</small>
+<hr>
+
+<article>
+  {{ content }}
+</article>
+
+<hr style="margin-top: 40px; border: 0; border-top: 1px solid #ccc;">
+
+<!-- قسم الروابط الداخلية المحدث بالإنجليزية -->
+<div class="related-posts" style="margin-top: 30px;">
+  <h3 style="color: #333; font-size: 20px; margin-bottom: 15px;">🎮 مقالات وألعاب ذات صلة قد تعجبك:</h3>
+  <ul style="list-style: square; padding-right: 20px;">
+    {% assign count = 0 %}
+    {% for post in site.categories[page.category] %}
+      {% if post.url != page.url and count < 3 %}
+        <li style="margin-bottom: 10px; border: none; padding: 0;">
+          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: #0076a3; font-size: 16px; font-weight: bold;">
+            {{ post.title }}
+          </a>
+        </li>
+        {% assign count = count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+<br>
+<a href="{{ site.baseurl }}/">&rarr; العودة للرئيسية</a>

@@ -3,5 +3,4 @@ description: موقع أحلامي يقدم لك تفسير الأحلام وا�
 url: "https://ahlami.arabsdar.net"
 baseurl: ""
 
-plugins:
-  - jekyll-sitemap
+

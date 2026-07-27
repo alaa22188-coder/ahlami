@@ -38,21 +38,42 @@ layout: default
 
 <hr style="margin-top: 40px; border: 0; border-top: 1px solid #ccc;">
 
-<!-- قسم تفسيرات ذات صلة -->
+<!-- قسم تفسيرات ذات صلة مطور مع حماية للروابط الفارغة -->
 <div class="related-posts" style="margin-top: 30px;">
   <h3 style="color: #333; font-size: 20px; margin-bottom: 15px;">🔮 تفسيرات أحلام ذات صلة قد تهمك:</h3>
   <ul style="list-style: square; padding-right: 20px;">
     {% assign count = 0 %}
-    {% for post in site.categories[page.category] %}
-      {% if post.url != page.url and count < 3 %}
-        <li style="margin-bottom: 10px; border: none; padding: 0;">
-          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: #0076a3; font-size: 16px; font-weight: bold;">
-            {{ post.title }}
-          </a>
-        </li>
-        {% assign count = count | plus: 1 %}
-      {% endif %}
-    {% endfor %}
+    
+    {% comment %} المحاولة الأولى: جلب مقالات من نفس التصنيف {% endcomment %}
+    {% if page.category and site.categories[page.category] %}
+      {% for post in site.categories[page.category] %}
+        {% if post.url != page.url and count < 4 %}
+          <li style="margin-bottom: 10px; border: none; padding: 0;">
+            <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: #0076a3; font-size: 16px; font-weight: bold;">
+              {{ post.title }}
+            </a>
+          </li>
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% comment %} المحاولة الثانية: إذا كان العدد أقل من 4 مقالات، نملأ الباقي من أحدث مقالات الموقع {% endcomment %}
+    {% if count < 4 %}
+      {% for post in site.posts %}
+        {% if post.url != page.url and count < 4 %}
+          {% comment %} التأكد من عدم تكرار مقال تم إضافته سابقاً {% endcomment %}
+          {% unless page.category and post.category == page.category %}
+            <li style="margin-bottom: 10px; border: none; padding: 0;">
+              <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: #0076a3; font-size: 16px; font-weight: bold;">
+                {{ post.title }}
+              </a>
+            </li>
+            {% assign count = count | plus: 1 %}
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   </ul>
 </div>
 
